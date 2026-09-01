@@ -19,7 +19,9 @@
     "test:db:setup": "bun --env-file=.env.test run prisma db push --force-reset && bun --env-file=.env.test run prisma db execute --file prisma/migrations/20260703000000_add_get_ticket_stats_function/migration.sql && bun --env-file=.env.test run prisma/src/seed.ts",
     "test:e2e": "bun run test:db:setup && playwright test",
     "test:e2e:ui": "bun run test:db:setup && playwright test --ui",
-    "test:e2e:debug": "bun run test:db:setup && playwright test --debug"
+    "test:e2e:debug": "bun run test:db:setup && playwright test --debug",
+    "docker:dev": "docker compose up --build",
+    "docker:down": "docker compose down"
   },
   "dependencies": {
     "@ai-sdk/groq": "^4.0.3",

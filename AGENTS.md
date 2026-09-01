@@ -133,7 +133,7 @@ Component tests live in the `client/` directory and use **Vitest** as the test r
 
 ### AI-Powered Ticket Features
 - **SDK**: Vercel AI SDK (`ai` + `@ai-sdk/groq`)
-- **Model**: `llama-3.1-8b-instant` via Groq
+- **Model**: `openai/gpt-oss-20b` via Groq (migrated from deprecated `llama-3.1-8b-instant`)
 - **API Key env var**: `GROQ_API_KEY`
 - **Features**: ticket classification (auto-assigns category), auto-resolve via [knowledge-base.md](src/knowledge-base.md), polish reply button, ticket summarization
 - **Location**: [src/routes/tickets.ts](src/routes/tickets.ts) (polish, summarize) and [src/lib/queue.ts](src/lib/queue.ts) (classification, auto-resolve)

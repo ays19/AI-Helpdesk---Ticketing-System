@@ -296,7 +296,7 @@ ticketRouter.post('/polish', asyncHandler(async (req: AuthenticatedRequest, res:
       return;
     } else {
       const { text } = await generateText({
-        model: groq('llama-3.1-8b-instant'),
+        model: groq('openai/gpt-oss-20b'),
         system: 
         "You are a helpful writing assistant for a customer support team." +
         "Improve the given reply for clarity, professional tone, and grammar." +
@@ -408,7 +408,7 @@ ticketRouter.post('/:id/summarize', asyncHandler(async (req: AuthenticatedReques
       }
 
       const { text } = await generateText({
-        model: groq('llama-3.1-8b-instant'),
+        model: groq('openai/gpt-oss-20b'),
         system: 'You are a customer support assistant. Your job is to read a helpdesk ticket (including its title, description, and the replies/conversation history) and write a concise, professional summary of the ticket and the conversation. Focus on the main issue, what has been discussed/resolved, and any next steps. Do not include any meta text, intro, or explanation, just return the summary itself.',
         prompt: conversationStr,
       });

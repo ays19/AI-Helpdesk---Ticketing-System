@@ -87,7 +87,7 @@ export async function registerQueueWorkers() {
       } else if (process.env.GROQ_API_KEY) {
         const prompt = `Ticket Title: ${title}\nTicket Description: ${description}`;
         const { text } = await generateText({
-          model: groq('llama-3.1-8b-instant'),
+          model: groq('openai/gpt-oss-20b'),
           system: `You are an AI ticket classifier. Your job is to read a customer support ticket and classify it into one of these three categories:\n- 'general_question': general inquiries, information requests, generic greetings, password changes, login/how-to assistance, account subscription cancellations (without refund requests), and settings questions.\n- 'technical_question': application crashes, system errors, bugs, database locks, data corruption, and API failures.\n- 'refund_request': explicit requests for money refunds, refund policies, billing disputes, transaction errors, and chargebacks. Do NOT classify general account cancellations under refund_request unless they explicitly mention money refunds or billing disputes.\nReturn only the classification value (exactly one of 'general_question', 'technical_question', or 'refund_request'), nothing else.`,
           prompt,
         });
@@ -236,7 +236,7 @@ export async function registerQueueWorkers() {
         const systemPrompt = `You are an AI support agent. Your job is to read a support ticket and determine if it can be fully resolved using the provided knowledge base.\n\nSupport Knowledge Base:\n${kbContent}\n\nInstructions:\n1. If the knowledge base contains a direct, specific answer that fully addresses the customer's issue, write a polite, professional reply addressed to ${customerName}.\n2. Start the reply with "Dear ${customerName}," and end it with "Best regards,\\nSharar's".\n3. If the issue is NOT covered by the knowledge base, or requires human investigation, return exactly: CANNOT_RESOLVE\n4. Do NOT make up information not present in the knowledge base.\n5. Return only the final reply text or CANNOT_RESOLVE — no preamble.`;
 
         const { text } = await generateText({
-          model: groq('llama-3.1-8b-instant'),
+          model: groq('openai/gpt-oss-20b'),
           system: systemPrompt,
           prompt: `Ticket Title: ${ticketPrefetch.title}\nTicket Description: ${ticketPrefetch.description}`,
         });
