@@ -11,7 +11,7 @@
 🌐 **Live Demo:** https://ai-powered-helpdesk-and-ticketing-system.up.railway.app
 📄 **Kaggle Writeup:** https://www.kaggle.com/competitions/vibecoding-agents-capstone-project/projects
 🎬 **Demo Video:** https://www.youtube.com/watch?v=rSMxxQLQCcU
-💻 **GitHub:** https://github.com/ays19/HELPDESK
+💻 **GitHub:** https://github.com/ays19/AI-Powered-Helpdesk-and-Ticketing-System
 
 > **Demo credentials**
 > Email: `admin@example.com` · Password: `password123`
@@ -73,7 +73,7 @@ Inbound Email / Web Form
 │   Agent 1 — Classification Worker           │
 │                                             │
 │  • Reads ticket title + description         │
-│  • Calls Groq (llama-3.1-8b-instant)        │
+│  • Calls Groq (openai/gpt-oss-20b)          │
 │  • Returns one of:                          │
 │    general_question | technical_question    │
 │    | refund_request                         │
@@ -160,7 +160,7 @@ Using PgBoss (a PostgreSQL-backed job queue) rather than a simple `await` chain 
 | Styling | Tailwind CSS v4 + shadcn/ui |
 | Auth | Better Auth (email/password, admin plugin) |
 | Database | PostgreSQL + Prisma ORM v7 |
-| AI | Vercel AI SDK + Groq (`llama-3.1-8b-instant`) |
+| AI | Vercel AI SDK + Groq (`openai/gpt-oss-20b`) |
 | Job Queue | PgBoss (PostgreSQL-backed async queue) |
 | Email | Resend (transactional + inbound webhooks) |
 | Validation | Zod (shared schemas in `core/`) |
@@ -251,8 +251,8 @@ Using PgBoss (a PostgreSQL-backed job queue) rather than a simple `await` chain 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/ays19/HELPDESK.git
-cd HELPDESK
+git clone https://github.com/ays19/AI-Powered-Helpdesk-and-Ticketing-System.git
+cd AI-Powered-Helpdesk-and-Ticketing-System
 ```
 
 ### 2. Install dependencies
@@ -446,7 +446,7 @@ The Docker image:
 
 To reproduce the exact Railway deployment from source:
 
-1. Fork the repository: https://github.com/ays19/HELPDESK
+1. Fork the repository: https://github.com/ays19/AI-Powered-Helpdesk-and-Ticketing-System
 2. Create a new Railway project and connect your fork
 3. Add a PostgreSQL plugin in Railway (auto-sets `DATABASE_URL`)
 4. Set all required environment variables listed in the [Environment Variables](#environment-variables) section

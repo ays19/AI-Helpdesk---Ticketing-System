@@ -29,7 +29,7 @@
 
 ## AI
 - Vercel AI SDK (`ai` + `@ai-sdk/groq`)
-- Groq — `llama-3.1-8b-instant` — ticket classification, auto-resolve, polish reply, summarization
+- Groq — `openai/gpt-oss-20b` — ticket classification, auto-resolve, polish reply, summarization
 - PgBoss (`pg-boss`) — PostgreSQL-backed async job queue for AI worker pipelines
 - Resend — transactional email (ticket created, reply, status update, AI resolution)
 
